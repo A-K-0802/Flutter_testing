@@ -13,7 +13,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String buttonname = 'Click';
-
+  int current = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,10 +32,19 @@ class _MyAppState extends State<MyApp> {
             child: Text(buttonname),
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings')
-        ]),
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings), label: 'Settings')
+          ],
+          currentIndex: current,
+          onTap: (int index) {
+            setState(() {
+              current = index;
+            });
+          },
+        ),
       ),
     );
   }
