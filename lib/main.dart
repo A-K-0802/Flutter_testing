@@ -23,13 +23,26 @@ class _MyAppState extends State<MyApp> {
           title: Text("My new app"),
         ),
         body: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              setState(() {
-                buttonname = 'Clicked';
-              });
-            },
-            child: Text(buttonname),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    buttonname = 'Clicked';
+                  });
+                },
+                child: Text(buttonname),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    buttonname = 'Clicked';
+                  });
+                },
+                child: Text(buttonname),
+              ),
+            ],
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
