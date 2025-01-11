@@ -23,41 +23,43 @@ class _MyAppState extends State<MyApp> {
           title: Text("My new app"),
         ),
         body: Center(
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.purple,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.amber,
-                    foregroundColor: Colors.white,
+          child: current == 0
+              ? Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  color: Colors.purple,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.amber,
+                          foregroundColor: Colors.white,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            buttonname = 'Clicked';
+                          });
+                        },
+                        child: Text(buttonname),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.amber,
+                          foregroundColor: Colors.white,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            buttonname = 'Clicked';
+                          });
+                        },
+                        child: Text(buttonname),
+                      ),
+                    ],
                   ),
-                  onPressed: () {
-                    setState(() {
-                      buttonname = 'Clicked';
-                    });
-                  },
-                  child: Text(buttonname),
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.amber,
-                    foregroundColor: Colors.white,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      buttonname = 'Clicked';
-                    });
-                  },
-                  child: Text(buttonname),
-                ),
-              ],
-            ),
-          ),
+                )
+              : SizedBox(),
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
