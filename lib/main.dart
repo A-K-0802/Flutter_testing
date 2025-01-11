@@ -59,8 +59,7 @@ class _MyAppState extends State<MyApp> {
                       ],
                     ),
                   )
-                : Image.network(
-                    'https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2018/04/moon_imaged_by_pleiades_satellite/17482451-1-eng-GB/Moon_imaged_by_Pleiades_satellite_pillars.jpg')),
+                : Image.asset('images/sp.jpg')),
         bottomNavigationBar: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
