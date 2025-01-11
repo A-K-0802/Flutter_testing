@@ -26,7 +26,7 @@ class Firstpage extends StatefulWidget {
 }
 
 class _FirstpageState extends State<Firstpage> {
-  String buttonname = 'Click';
+  String buttonname = 'New Page';
   int current = 0;
   @override
   Widget build(BuildContext context) {
