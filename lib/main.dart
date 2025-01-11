@@ -28,6 +28,7 @@ class Firstpage extends StatefulWidget {
 class _FirstpageState extends State<Firstpage> {
   String buttonname = 'New Page';
   int current = 0;
+  bool isclicked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,32 +36,43 @@ class _FirstpageState extends State<Firstpage> {
         title: Text("My new app"),
       ),
       body: Center(
-          child: current == 0
-              ? Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  color: Colors.purple,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.amber,
-                          foregroundColor: Colors.white,
-                        ),
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) {
-                            return Second();
-                          }));
-                        },
-                        child: Text(buttonname),
+        child: current == 0
+            ? Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: Colors.purple,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.amber,
+                        foregroundColor: Colors.white,
                       ),
-                    ],
-                  ),
-                )
-              : Image.asset('images/sp.jpg')),
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (BuildContext context) {
+                          return Second();
+                        }));
+                      },
+                      child: Text(buttonname),
+                    ),
+                  ],
+                ),
+              )
+            : GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isclicked = !isclicked;
+                  });
+                },
+                child: isclicked
+                    ? Image.asset('images/sp.jpg')
+                    : Image.network(
+                        'https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg'),
+              ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
