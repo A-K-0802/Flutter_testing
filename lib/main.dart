@@ -44,18 +44,6 @@ class _MyAppState extends State<MyApp> {
                           },
                           child: Text(buttonname),
                         ),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.amber,
-                            foregroundColor: Colors.white,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              buttonname = 'Clicked';
-                            });
-                          },
-                          child: Text(buttonname),
-                        ),
                       ],
                     ),
                   )
